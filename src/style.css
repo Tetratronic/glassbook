@@ -1,0 +1,9 @@
+.task{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+}
+
+.highprio{
+    border: 1px solid red;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content"></div>
+    <dialog class="dialogform">
+        <form id="todoform">
+            <p>
+                <label for="title">Title</label>
+                <input type="text" name="title" required><br>
+                <label for="description">Description</label>
+                <input type="text" name="description" id="description" required>
+                <label for="bookpages">Date</label>
+                <input type="text" name="duedate" id="duedate" required>
+                <input type="number" name="priority" id="priority">
+            </p>
+            <div id="form-buttons">
+                <button id="cancelbtn" value="cancel" formmethod="dialog">Cancel</button>
+                <button id="confirmBtn" >Confirm</button>
+            </div>
+        </form>
+    </dialog>
+    <script src="bundle.js"></script>
+</body>
+</html>
