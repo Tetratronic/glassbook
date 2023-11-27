@@ -1,29 +1,27 @@
 import Task from "./task";
-import rendertask from "./DOMmanipulation";
-import './style.css';
-import openForm from "./modalForm";
+import taskList from "./taskList";
 
-const tasklist = [];
-function addTask(t,d,date,p){
-    const task = new Task(t,d,date,p)
-    tasklist.push(task);
-    document.body.appendChild(rendertask(task));
-}
 
-const open = document.createElement("button");
-open.textContent = "OPEN"
+const dialog = document.querySelector(".dialogform");
 
-confirmBtn.addEventListener("click",(event) =>{
-    event.preventDefault();
-    const formdata = new FormData(document.getElementById("todoform"));
-    const data = [...formdata.values()];
-    addTask(...data);
+const form = document.getElementById("todoform");
+
+const confirmbtn = document.getElementById("confirmBtn");
+
+const addTaskBtn = document.createElement("button");
+
+let list = taskList()
+
+addTaskBtn.addEventListener("click", ()=>{
+    dialog.showModal();
 })
 
-open.addEventListener("click", ()=>{
-    openForm();
+document.body.appendChild(addTaskBtn);
+
+confirmbtn.addEventListener("click", (e)=>{
+    e.preventDefault();
+    let formdata = new FormData(form);
+    let data = [...formdata.values()];
+    list.addTask(new Task(...data));
+    console.log(list.getTasks()[0].title);
 });
-
-document.body.appendChild(open);
-
-
